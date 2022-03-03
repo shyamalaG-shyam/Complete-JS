@@ -391,51 +391,49 @@ async function getData(){
 }
 getData(); */
 
-async function getBooks(){
-    // //get
-    // var books=await fetch("http://localhost:3000/books")
-    // var res= await books.json()
-    // console.log(res)
 
-    // console.log(res[0].id)
-    //get by id
-    // var book=await fetch(`http://localhost:3000/books/${res[0].id}`)
-    // console.log(await book.json())
-//post
-    // var putBook=await fetch("http://localhost:3000/books",{
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //       id: 3,
-    //       name:"JAVA SCRIPT",
-    //       publisher: "TADA",
-    //     }),
-    //     headers: {
-    //       'Content-type': 'application/json; charset=UTF-8',
-    //     },
-    //   })
-    // console.log(putBook.status)
+//from db.json file
+async function getBooks(){
+    // ----------get-------------
+    var books=await fetch("http://localhost:3000/books")
+    var res= await books.json()
+    console.log(res)
+
+    console.log(res[0].id)
+    // get by id
+    var book=await fetch(`http://localhost:3000/books/${res[0].id}`)
+    console.log(await book.json())
+
+    //-----------post----------------------
+    /* var putBook=await fetch("http://localhost:3000/books",{
+        method: 'POST',
+        body: JSON.stringify({
+          id: 2,
+          name:"C++",
+          publisher: "BLP",
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+    console.log(putBook.status) */
 
     //put
-    //var upDate=fetch('http://localhost:3000/books/2', {
-    //     method: 'PUT',
-    //     body: JSON.stringify({
-    //       id: 21,
-    //       name: 'C plus plus',
-    //       publisher: 'BLP',
-    //     }),
-    //     headers: {
-    //       'Content-type': 'application/json; charset=UTF-8',
-    //     },
-    //   })
+  /*   var upDate=fetch('http://localhost:3000/books/2', {
+        method: 'PUT',
+        body: JSON.stringify({
+          id: 2,
+          name: 'C plus plus',
+          publisher: 'BLP',
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }) */
 
     //delete
-    var deleteById=await fetch('http://localhost:3000/books/2', {
-        method: 'DELETE',
-      });
-
-
-
-
-    
+    // var deleteById=await fetch('http://localhost:3000/books/2', {
+    //     method: 'DELETE',
+    //   });   
 }
 getBooks();
