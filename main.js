@@ -336,7 +336,7 @@ set.clear() */
 // let a, b;
 // ({a, b} = {a: 1, b: 2});
 
-/* //DOM
+//DOM
 document.getElementById("op1").addEventListener("focus",function(){
     document.getElementById("op1").style.backgroundColor="blue"
     document.getElementById("op2").style.display="none"
@@ -346,8 +346,11 @@ document.getElementById("op1").addEventListener("blur",function(){
     document.getElementById("op1").style.backgroundColor="rgba(255, 255, 255, 0.5)"
 
 })
+/*
+
 
 //AJAX CALLS USING FETCH API
+
 async function getData(){
     //GET
     const rest=await fetch('https://jsonplaceholder.typicode.com/posts/1')
@@ -392,48 +395,76 @@ async function getData(){
 getData(); */
 
 
-//from db.json file
+// from db.json file
+//--------get-------------
+var res;
 async function getBooks(){
     // ----------get-------------
     var books=await fetch("http://localhost:3000/books")
-    var res= await books.json()
-    console.log(res)
+    res= await books.json()
+    console.log(res[0])
+    for(let i=0;i<res.length;i++){
+        var data = document.getElementsByTagName("table")[0] 
+        var newRow = data.insertRow() 
+        var cel1 = newRow.insertCell(0) 
+        var cel2 = newRow.insertCell(1)
+        var cel3 = newRow.insertCell(2)  
+        var cel4 = newRow.insertCell(3)  
+        cel1.innerHTML=res[i].id
+        cel2.innerHTML=res[i].name
+        cel3.innerHTML=res[i].publisher
+        cel4.innerHTML=`<a id="edit" href="#" onclick="edit(${res[i].id})">Edit</a> &nbsp <a id="delete" href="#" onclick="deleteId(${res[i].id})">Delete</a>`
+        }
+    
 
     console.log(res[0].id)
     // get by id
     var book=await fetch(`http://localhost:3000/books/${res[0].id}`)
-    console.log(await book.json())
+    console.log(await book.json()) 
+}
+getBooks();
+//--------------put-------------------
+async function edit(res){
+        //put
+        var ans=prompt("Enter the values for name, publisher in comma seperated ")
+        ans=ans.split(",")
 
-    //-----------post----------------------
-    /* var putBook=await fetch("http://localhost:3000/books",{
+     var upDate=fetch(`http://localhost:3000/books/${res}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          id: res,
+          name: ans[0],
+          publisher: ans[1],
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }) 
+}
+//--------------------delete------------
+async function deleteId(res){
+    // delete
+    var deleteById=await fetch(`http://localhost:3000/books/${res}`, {
+        method: 'DELETE',
+      });   
+        
+}
+document.getElementById("add").addEventListener('click',function(){
+    document.getElementById("forms").style.visibility="visible"
+})
+//----------------post-------------------
+async function addBook(n,pub){
+    //post
+    var putBook=await fetch("http://localhost:3000/books",{
         method: 'POST',
         body: JSON.stringify({
-          id: 2,
-          name:"C++",
-          publisher: "BLP",
+          id: res.length+1,
+          name:n,
+          publisher: pub,
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-    console.log(putBook.status) */
-
-    //put
-  /*   var upDate=fetch('http://localhost:3000/books/2', {
-        method: 'PUT',
-        body: JSON.stringify({
-          id: 2,
-          name: 'C plus plus',
-          publisher: 'BLP',
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      }) */
-
-    //delete
-    // var deleteById=await fetch('http://localhost:3000/books/2', {
-    //     method: 'DELETE',
-    //   });   
+    // console.log(putBook.status)
 }
-getBooks();

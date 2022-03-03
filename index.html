@@ -14,6 +14,28 @@
         <input type="submit" value="ADD" class="btn">
     </div>
 
+    <div class="cont2">
+        <div class="tab">
+            <table class="bookLists">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>BOOK NAME</th>
+                        <th>PUBLISHER</th>
+                        <th><input type="submit" class="btn" value="ADD" id="add"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr></tr>            
+                </tbody>
+            </table>
+        </div>
+        <div id="forms">
+            <label>name</label> <input type="text" id="bname">
+            <label>publisher</label> <input type="text" id="pub">
+            <input type="submit" value="ADD" class="btn" onclick="addBook(bname.value,pub.value)">
+        </div>
+    </div>
 <script src="main.js"></script>
 </body>
 </html>

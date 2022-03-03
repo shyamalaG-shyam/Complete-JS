@@ -50,3 +50,36 @@ input:focus{
     box-shadow: 0rem .5rem .5rem rgba(255, 166, 0, 0.493);
     
 }
+.cont2{
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.tab{
+    flex:2;
+}
+#forms{
+    visibility: hidden;
+    padding: 10px;
+    flex: 1;
+    height:20rem;
+    width: 10px;
+    background-color: black;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0rem 2rem rgba(0, 0, 0, 0.212);
+}
+table{
+    border-collapse: collapse;
+    width:90%
+}
+td,th{
+    border:1px solid rgb(228, 226, 226);
+    text-align: left;
+    padding: 5px;
+     
+}
+tr:nth-child(odd),thead>tr{
+    background-color: grey;
+}
