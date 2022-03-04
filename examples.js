@@ -241,9 +241,10 @@ function blurEvent(){
     document.getElementById("op1").style.backgroundColor="rgba(255, 255, 255, 0.5)"
 }
 
+
 //Ajax Calls
-var res;
 //makes get request
+var res;
 async function getBooks(){
     // ----------get-------------
     var books=await fetch("http://localhost:3000/books")
@@ -270,7 +271,6 @@ getBooks();
 
 //makes put request
 async function edit(res){
-    //put
     var ans=prompt("Enter the values for name, publisher in comma seperated ")
     ans=ans.split(",")
 
@@ -288,7 +288,6 @@ async function edit(res){
 }
 //makes delete request
 async function deleteId(res){
-    // delete
     var deleteById=await fetch(`http://localhost:3000/books/${res}`, {
         method: 'DELETE',
       });   
@@ -300,7 +299,6 @@ document.getElementById("add").addEventListener('click',function(){
 
 //Makes post request
 async function addBook(n,pub){
-    //post
     var putBook=await fetch("http://localhost:3000/books",{
         method: 'POST',
         body: JSON.stringify({
