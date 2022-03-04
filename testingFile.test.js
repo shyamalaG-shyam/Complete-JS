@@ -1,12 +1,25 @@
 const { test, expect } = require("@jest/globals");
-const sumOfOdd=require("./examples")
-const whatDoYouDo=require('./functionExpression')
+const whatDoYouDo=require('./functionExpression');
+const createObj=require('./literalAproach');
 
-test("should return sum of odd numbers (8)",()=>{
-    var ar=[1,2,2,4]
-      expect(sumOfOdd(ar)).toBe(8)
-});
+
+
 
 test("should return designer alice",()=>{
     expect(whatDoYouDo("designer","alice")).toBe("designer alice")
 })
+
+test("should return an object",()=>{
+    var myObj={
+        fn:"aaa",
+        ln:"bbbb",
+        year:1971,
+       '30':"cricket",
+        age:function(){
+            return 2022-this.year
+        }
+    }
+    expect(JSON.stringify(createObj())).toBe(JSON.stringify(myObj))
+});
+
+

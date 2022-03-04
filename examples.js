@@ -20,7 +20,7 @@ module.exports=sumOfOdd
 
 //Function to create an object in literal approach
 function createObj(){
-    let cricketer={
+    let cricketer1={
         fn:"aaa",
         ln:"bbbb",
         year:1971,
@@ -29,6 +29,7 @@ function createObj(){
             return 2022-this.year
         }
     }
+    
     return cricketer
 }
 var Cricketer=createObj();
